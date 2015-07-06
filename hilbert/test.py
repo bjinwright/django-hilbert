@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse
 from django.db.models import get_app, get_apps
 from django.test import TestCase as DjangoTestCase
 from django.test.client import Client as DjangoClient
-from django.test.simple import DjangoTestSuiteRunner
+from django.test.runner import DiscoverRunner
 
 
 __all__ = (
@@ -62,7 +62,7 @@ class TestCase(DjangoTestCase):
         return User.objects.create_user(**defaults)
 
 
-class CoverageRunner(DjangoTestSuiteRunner):
+class CoverageRunner(DiscoverRunner):
     """
     Coverage based test runner based on
     http://djangosnippets.org/snippets/2052/ and
